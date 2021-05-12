@@ -1,10 +1,14 @@
 function Character({character} ) {
 
     return <section>
+        <img src={character.image} alt={character.name}/>
+
         <h2 className={"super-header"}>
             {character.name}
         </h2>
-        some description
+        <div>
+            {character.species}
+        </div>
     </section>
 }
 
