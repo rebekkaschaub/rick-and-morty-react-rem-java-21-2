@@ -1,4 +1,11 @@
 .App {
-  text-align: center;
   color: hotpink;
+}
+
+h1 {
+  color: black;
+}
+
+.super-header{
+  color: red;
 }
