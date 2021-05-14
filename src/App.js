@@ -6,6 +6,7 @@ import axios from "axios";
 import { usePromiseTracker } from "react-promise-tracker";
 import ErrorMessage from "./components/ErrorMessage";
 import LoadingSpinner from "./components/LoadingSpinner";
+import { loadCharacter } from "./service/api-service";
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -22,9 +23,9 @@ function App() {
 
   function loadData() {
     setLoad(true);
-    axios
-      .get("https://rickandmortyapi.com/api/character")
-      .then((response) => setResponse(response.data))
+
+    loadCharacter()
+      .then((response) => setResponse(response))
       .catch((error) => setError(error))
       .finally(() => setLoad(false));
   }
