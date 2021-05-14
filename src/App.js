@@ -11,13 +11,13 @@ import { loadCharacter } from "./service/api-service";
 function App() {
   const [searchString, setSearchString] = useState("");
 
-  const [response, setResponse] = useState({ results: [] });
+  const [characters, setCharacters] = useState([]);
 
   const [error, setError] = useState();
 
   const [load, setLoad] = useState(false);
 
-  const filterCharacter = response.results.filter((character) =>
+  const filterCharacter = characters.filter((character) =>
     character.name.toLowerCase().includes(searchString.toLowerCase())
   );
 
@@ -25,7 +25,7 @@ function App() {
     setLoad(true);
 
     loadCharacter()
-      .then((response) => setResponse(response))
+      .then((response) => setCharacters(response.results))
       .catch((error) => setError(error))
       .finally(() => setLoad(false));
   }
