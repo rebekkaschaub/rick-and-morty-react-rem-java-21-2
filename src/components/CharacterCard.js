@@ -1,4 +1,4 @@
-function Character({character} ) {
+function CharacterCard({character} ) {
 
     return <section>
         <img src={character.image} alt={character.name}/>
@@ -12,4 +12,4 @@ function Character({character} ) {
     </section>
 }
 
-export default Character;
+export default CharacterCard;

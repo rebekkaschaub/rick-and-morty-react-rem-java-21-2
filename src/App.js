@@ -1,6 +1,6 @@
 import './App.css';
 import Header from "./components/Header";
-import Character from "./components/Character";
+import CharacterCard from "./components/CharacterCard";
 
 function App() {
     const response = {
@@ -271,8 +271,11 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            <Character character={response.results[0]}/>
-            <Character character={response.results[1]}/>
+            {response.results.map((character) =>
+                <CharacterCard
+                    key={character.id}
+                    character={character}/>)}
+
         </div>
     );
 }
