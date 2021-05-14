@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import CharacterCard from "./components/CharacterCard";
+import { useState } from "react";
 
 function App() {
   const response = {
@@ -572,10 +573,26 @@ function App() {
     ],
   };
 
+  const [searchString, setSearchString] = useState("");
+
+  const filteredCharacters = response.results.filter((character) =>
+    character.name
+      .toLocaleLowerCase()
+      .includes(searchString.toLocaleLowerCase())
+  );
+
   return (
     <div className="App">
       <Header />
-      {response.results.map((character) => (
+      <input
+        value={searchString}
+        onChange={(event) => {
+          setSearchString(event.target.value);
+        }}
+      />
+      <button onClick={() => setSearchString("")}>clear</button>
+
+      {filteredCharacters.map((character) => (
         <CharacterCard key={character.id} character={character} />
       ))}
     </div>
