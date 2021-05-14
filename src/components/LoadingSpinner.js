@@ -1,5 +1,11 @@
+import "./loadingSpinner.css";
+
 function LoadingSpinner() {
-  return <p>Loading...</p>;
+  return (
+    <div className="lds-heart">
+      <div></div>
+    </div>
+  );
 }
 
 export default LoadingSpinner;
